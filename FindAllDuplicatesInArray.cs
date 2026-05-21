@@ -25,4 +25,29 @@ public class Solution {
         return res;
         
     }
+    //Auxiliary space approach
+	public IList<int> FindDuplicatesAuxiliary(int[] nums) {
+
+        //Hold duplicates
+        var res = new List<int>();
+
+        // our variable that is going to help us manipulate the array
+        int index;
+
+        for(int i = 0; i < nums.Length; i++){
+
+            //map our number to its 0 based index 
+            index = Math.Abs(nums[i]) - 1;
+            
+            if(nums[index] < 0){
+                res.Add(index + 1);
+            }else{
+                nums[index] = -nums[index];
+            }
+        }
+
+        return res;
+        
+    }
+    
 }
